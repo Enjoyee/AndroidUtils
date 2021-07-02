@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import timber.log.Timber
 import java.io.Serializable
 import java.lang.reflect.Field
 import java.lang.reflect.Method
@@ -258,22 +259,22 @@ inline fun <T, R> T.doWithTry(block: (T) -> R) {
 
 /*=======================================================*/
 fun Any.logV(tag: String? = null) {
-    KLog.v(message = this.toString(), tag = tag)
+    Timber.tag(tag).v(this.toString())
 }
 
 fun Any.logD(tag: String? = null) {
-    KLog.d(message = this.toString(), tag = tag)
+    Timber.tag(tag).d(this.toString())
 }
 
 fun Any.logI(tag: String? = null) {
-    KLog.i(message = this.toString(), tag = tag)
+    Timber.tag(tag).i(this.toString())
 }
 
 fun Any.logW(tag: String? = null) {
-    KLog.w(message = this.toString(), tag = tag)
+    Timber.tag(tag).w(this.toString())
 }
 
 fun Any.logE(tag: String? = null) {
-    KLog.e(message = this.toString(), tag = tag)
+    Timber.tag(tag).e(this.toString())
 }
 
