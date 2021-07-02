@@ -43,6 +43,7 @@ dependencies {
     /////////////////////////////////////////////////
     api 'com.blankj:utilcodex:1.30.0'
     api 'com.tencent:mmkv:1.2.7'
+    api 'com.jakewharton.timber:timber:4.7.1'
     /////////////////////////////////////////////////
 }
 
