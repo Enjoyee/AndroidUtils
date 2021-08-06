@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'maven-publish'
 
 def androidConfig = rootProject.ext.android
 
@@ -27,14 +26,13 @@ android {
         targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
-        // work-runtime-ktx 2.1.0 and above now requires Java 8
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = "11"
+        useIR = true
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'com.orhanobut:logger:2.2.0'
     implementation 'androidx.appcompat:appcompat:1.3.0'
@@ -43,18 +41,5 @@ dependencies {
     api 'com.tencent:mmkv:1.2.7'
     api 'com.jakewharton.timber:timber:4.7.1'
     /////////////////////////////////////////////////
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.glimmer.kt'
-                artifactId = 'util'
-                version = '1.0.0'
-            }
-        }
-    }
 }
 
